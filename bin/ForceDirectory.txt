@@ -1,0 +1,1 @@
+This text file is here to force QVCS to create this directory structure upon a projects initial get.
