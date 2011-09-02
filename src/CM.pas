@@ -9,7 +9,7 @@ type
   TContextMenu = class(TComObject, IShellExtInit, IContextMenu)
   private
     fPaths: String;
-  protected
+  public
     { IShellExtInit }
     function IShellExtInit.Initialize = SEIInitialize; // Avoid compiler warning
     function SEIInitialize(pidlFolder: PItemIDList; lpdobj: IDataObject;
@@ -18,7 +18,7 @@ type
     function QueryContextMenu(Menu: HMENU; indexMenu, idCmdFirst, idCmdLast,
       uFlags: UINT): HResult; stdcall;
     function InvokeCommand(var lpici: TCMInvokeCommandInfo): HResult; stdcall;
-    function GetCommandString(idCmd, uType: UINT; pwReserved: PUINT;
+    function GetCommandString(idCmd: UINT_PTR; uFlags: UINT; pwReserved: PUINT;
       pszName: LPSTR; cchMax: UINT): HResult; stdcall;
   end;
 
@@ -172,11 +172,11 @@ begin
   end;
 end;
 
-function TContextMenu.GetCommandString(idCmd, uType: UINT; pwReserved: PUINT;
-  pszName: LPSTR; cchMax: UINT): HRESULT;
+function TContextMenu.GetCommandString(idCmd: UINT_PTR; uFlags: UINT; pwReserved: PUINT;
+  pszName: LPSTR; cchMax: UINT): HResult; stdcall;
 begin
   Result := E_INVALIDARG;
-  if (uType = GCS_HELPTEXT) then
+  if (uFlags = GCS_HELPTEXT) then
   begin
     Result := NOERROR;
     case idCmd of
