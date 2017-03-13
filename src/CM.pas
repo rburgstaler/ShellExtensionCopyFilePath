@@ -25,10 +25,10 @@ type
 
 const
   Class_ContextMenu: TGUID = '{F3026062-4D7E-4638-9A6B-3B2CCAC3FCBB}';
-  cVerbCopyFileFullPath = 0;
-  cVerbCopyFileName = 1;
-  cVerbAppendCopyFileFullPath = 2;
-  cVerbAppendCopyFileName = 3;
+  cVerbCopyFileFullPath = 1;
+  cVerbCopyFileName = 2;
+  cVerbAppendCopyFileFullPath = 3;
+  cVerbAppendCopyFileName = 4;
 implementation
 
 uses ComServ, SysUtils, ShellApi, Registry, ClipBrd, Classes;
