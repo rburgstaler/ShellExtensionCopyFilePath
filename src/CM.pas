@@ -3,7 +3,7 @@ unit CM;
 interface
  
 uses
-  Windows, ActiveX, ComObj, ShlObj, Dialogs, Forms;
+  Windows, ActiveX, ComObj, ShlObj, Dialogs, Forms, RestartManagerUtils;
  
 type
   TContextMenu = class(TComObject, IShellExtInit, IContextMenu)
@@ -235,4 +235,5 @@ initialization
   TContextMenuFactory.Create(ComServer, TContextMenu, Class_ContextMenu,
     '', 'YouCustomNameYouWantForContext Context Menu Shell Extension', ciMultiInstance, tmApartment);
   gAllPaths:='';
+  DoRegisterApplicationRestart('');
 end.

@@ -2,7 +2,8 @@ library ShellExtCopyFilePath;
 
 uses
   ComServ,
-  CM in 'CM.pas';
+  CM in 'CM.pas',
+  RestartManagerUtils in 'RestartManagerUtils.pas';
 
 exports
   DllGetClassObject,
